@@ -1,0 +1,14 @@
+{
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "emmet.includeLanguages": {
+    "postcss": "css"
+  },
+  "tailwindCSS.includeLanguages": {
+    "postcss": "css"
+  },
+  "files.associations": {
+    "*.css": "tailwindcss"
+  }
+}
