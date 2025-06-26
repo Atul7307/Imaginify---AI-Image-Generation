@@ -1,7 +1,7 @@
 import React from 'react'
 
-const TransformationsPage = async ({params} : {params: {id: string}}) => {
-  const {id} =  await params;
+const TransformationsPage =  ({params} : {params: {id: string}}) => {
+  const {id} =   params;
   return (
     <div>
       Transformations Page: {id}
