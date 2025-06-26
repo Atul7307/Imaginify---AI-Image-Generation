@@ -1,10 +1,9 @@
 import React from 'react'
 
-const UpdateTransformationPage =  ({params} : {params: {id: string}}) => {
-  const {id} =  params;
+const UpdateTransformationPage =  () => {
   return (
     <div>
-      Transformation Update Page: {id}
+      Transformation Update Page: 
     </div>
   )
 }
