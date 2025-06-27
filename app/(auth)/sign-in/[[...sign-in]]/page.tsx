@@ -11,19 +11,16 @@ const SignInPage = () => {
 
   useEffect(() => {
     if (isLoaded && isSignedIn) {
-      router.push('/') // or wherever you want
+      router.push('/') // Redirect if already signed in
     }
   }, [isLoaded, isSignedIn, router])
 
   if (!isLoaded || isSignedIn) return null
 
   return (
-    <>
-      <div className='flex  items-center justify-center w-full bg-gray-100'>
-        <SignIn fallbackRedirectUrl="/"
-        />
-      </div>
-    </>
+    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <SignIn fallbackRedirectUrl="/" />
+    </div>
   )
 }
 

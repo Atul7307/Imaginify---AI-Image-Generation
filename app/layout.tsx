@@ -3,10 +3,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { IBM_Plex_Sans } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
-import { SpeedInsights } from "@vercel/speed-insights/next"
-// write favicon and apple touch icon
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
-
+// Fonts
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -23,12 +22,13 @@ const IBMPlex = IBM_Plex_Sans({
   weight: ["100", "200", "300", "400", "500", "600", "700"],
 });
 
-
+// Metadata with favicon & apple-touch-icon
 export const metadata: Metadata = {
   title: "Imaginify - AI Image Generation",
   description: "AI-powered image generation platform",
   icons: {
     icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png", // You should have this file
   },
 };
 
@@ -38,11 +38,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider 
+    <ClerkProvider
+      publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
       appearance={{
         variables: { colorPrimary: "#624cf5" },
       }}
-      publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
+      // ✅ Add new-style redirect props here
+      signInUrl="/sign-in"
+      signUpUrl="/sign-up"
+      signInFallbackRedirectUrl="/"
+      signUpFallbackRedirectUrl="/"
     >
       <html lang="en">
         <body
