@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { IBM_Plex_Sans } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 // write favicon and apple touch icon
 
 
@@ -48,6 +49,7 @@ export default function RootLayout({
           className={`${geistSans.variable} ${geistMono.variable} ${IBMPlex.variable} antialiased`}
         >
           {children}
+          <SpeedInsights />
         </body>
       </html>
     </ClerkProvider>
