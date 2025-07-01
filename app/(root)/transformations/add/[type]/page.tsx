@@ -7,17 +7,19 @@ import {auth} from '@clerk/nextjs/server'
 import { getUserById } from '@/lib/actions/user.actions'
 import { redirect } from 'next/navigation'
 
-interface AddTransformationPageProps {
-  params: {
-    type: TransformationTypeKey;
-  };
-}
-
-
-const AddTransformationTypePage = async ({ params: { type } }: AddTransformationPageProps) => {
-
+const AddTransformationTypePage = async ({
+  params,
+}: {
+  params: Promise<{ type: TransformationTypeKey }>
+}) => {
+  const { type } = await params;
   const {userId} = await auth();
   const transformation = transformationTypes[type];
+
+  if (!transformation) {
+    redirect('/404'); // Or return custom 404 JSX
+  }
+
 
   if(!userId) redirect('/sign-in');
 
