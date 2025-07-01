@@ -4,6 +4,8 @@ import "./globals.css";
 import { IBM_Plex_Sans } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Toaster } from "@/components/ui/sonner"
+
 
 // Fonts
 const geistSans = Geist({
@@ -55,6 +57,7 @@ export default function RootLayout({
         >
           {children}
           <SpeedInsights />
+          <Toaster />
         </body>
       </html>
     </ClerkProvider>

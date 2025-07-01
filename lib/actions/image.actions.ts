@@ -37,7 +37,7 @@ export async function addImage({ image, userId, path }: AddImageParams) {
 
     return JSON.parse(JSON.stringify(newImage));
   } catch (error) {
-    handleError(error);
+    handleError(error , 'Error adding image');
   }
 }
 
@@ -98,7 +98,7 @@ export async function getAllImages({
       savedImages,
     };
   } catch (error) {
-    handleError(error);
+    handleError(error, 'Error getting all images');
   }
 }
 
@@ -129,7 +129,7 @@ export async function getUserImages({
       totalPages: Math.ceil(totalImages / limit),
     };
   } catch (error) {
-    handleError(error);
+    handleError(error, 'Error getting user images');
   }
 }
 
@@ -143,7 +143,7 @@ export async function getImageById(imageId: string) {
 
     return JSON.parse(JSON.stringify(image));
   } catch (error) {
-    handleError(error);
+    handleError(error, 'Error getting image by ID');
   }
 }
 
@@ -168,7 +168,7 @@ export async function updateImage({ userId, image, path }: UpdateImageParams) {
 
     return JSON.parse(JSON.stringify(updatedImage));
   } catch (error) {
-    handleError(error);
+    handleError(error, 'Error updating image');
   }
 }
 
@@ -179,7 +179,7 @@ export async function deleteImage(imageId: string) {
 
     await Image.findByIdAndDelete(imageId);
   } catch (error) {
-    handleError(error);
+    handleError(error, 'Error deleting image');
   } finally {
     redirect("/");
   }
