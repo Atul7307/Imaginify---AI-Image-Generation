@@ -62,7 +62,7 @@ module.exports = {
   		},
   		backgroundImage: {
   			'purple-gradient': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-  			banner: 'url("/assets/images/banner.jpg")'
+  			banner: 'url("/assets/images/banner-bg.png")',
   		}
   	}
   },
