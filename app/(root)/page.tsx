@@ -6,9 +6,9 @@ import { Collection } from "@/components/shared/Collection";
 import { navLinks } from "@/constants";
 import { getAllImages } from "@/lib/actions/image.actions";
 
-const Home = async ({ searchParams }: { searchParams: { [key: string]: string } }) => {
+const Home = async ({ searchParams }: SearchParamProps ) => {
   const page = Number((await searchParams)?.page)  || 1;
-  const searchQuery = (await searchParams)?.query || "";
+  const searchQuery = (await searchParams?.query as string) || "";
 
   const images = await getAllImages({ page, searchQuery });
   return (
