@@ -4,4 +4,5 @@ module.exports = {
   generateRobotsTxt: true,
   generateIndexSitemap: true,
   outDir: './public', // This ensures output goes to /public
+  exclude: ['/profile', '/credits'],
 };
