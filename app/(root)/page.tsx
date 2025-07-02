@@ -6,7 +6,12 @@ import { Collection } from "@/components/shared/Collection";
 import { navLinks } from "@/constants";
 import { getAllImages } from "@/lib/actions/image.actions";
 
-const Home = async ({ searchParams }: SearchParamProps ) => {
+interface PageProps {
+  params: Promise<{}>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}
+
+const Home = async ({params, searchParams }: PageProps ) => {
   
 
    // Await the searchParams Promise once, then access its properties
