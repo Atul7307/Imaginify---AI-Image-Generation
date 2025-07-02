@@ -7,8 +7,14 @@ import { navLinks } from "@/constants";
 import { getAllImages } from "@/lib/actions/image.actions";
 
 const Home = async ({ searchParams }: SearchParamProps ) => {
-  const page = Number((await searchParams)?.page)  || 1;
-  const searchQuery = (await searchParams?.query as string) || "";
+  
+
+   // Await the searchParams Promise once, then access its properties
+  const resolvedSearchParams = await searchParams;
+  
+  // Now safely access the properties from the resolved object
+  const page = Number(resolvedSearchParams?.page) || 1;
+  const searchQuery = (resolvedSearchParams?.query as string) || "";
 
   const images = await getAllImages({ page, searchQuery });
   return (
