@@ -324,7 +324,6 @@ export const TransformationForm = ({
           {/* MEDIA UPLOADER */}
           <CustomField
             control={form.control}
-            title={form.getValues().title}
             name="publicId"
             className="flex size-full flex-col"
             render={({ field }) => (
