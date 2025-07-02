@@ -6,16 +6,11 @@ import { Collection } from "@/components/shared/Collection";
 import { navLinks } from "@/constants";
 import { getAllImages } from "@/lib/actions/image.actions";
 
-const Home = async () => {
-  const headersList = headers();
-  const url = (await headersList).get("x-url") || "http://localhost:3000"; // fallback for local
-
-  const { searchParams } = new URL(url);
-  const page = Number(searchParams.get("page") ?? 1);
-  const searchQuery = searchParams.get("query") ?? "";
+const Home = async ({ searchParams }: { searchParams: { [key: string]: string } }) => {
+  const page = Number((await searchParams)?.page)  || 1;
+  const searchQuery = (await searchParams)?.query || "";
 
   const images = await getAllImages({ page, searchQuery });
-
   return (
     <>
       {/* Banner */}

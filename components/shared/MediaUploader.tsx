@@ -12,11 +12,13 @@ type MediaUploaderProps = {
     publicId: string;
     type: string;
     image: string;
+    title:string;
 }
 
 
 const MediaUploader = ({
     onValueChange,
+    title,
     setImage,
     publicId,
     type,
