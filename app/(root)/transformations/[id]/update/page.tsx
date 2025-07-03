@@ -7,10 +7,17 @@ import { transformationTypes } from "@/constants";
 import { getImageById } from "@/lib/actions/image.actions";
 import { getUserById } from "@/lib/actions/user.actions";
 
-const UpdateImage = async ({ params: { id } }: SearchParamProps) => {
+
+interface updateImageProps {
+  params: Promise<{ id: string }>;
+}
+
+const UpdateImage = async ({ params }: updateImageProps) => {
   const { userId } = await auth();
 
   if (!userId) redirect("/sign-in");
+
+  const { id } = await params;
 
   const user = await getUserById(userId);
   const image = await getImageById(id);
