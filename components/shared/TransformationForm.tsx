@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -30,8 +31,8 @@ import { debounce, deepMergeObjects } from "@/lib/utils";
 
 import { CustomField } from "./CustomField";
 import { InsufficientCreditsModal } from "./InsufficientCreditsModal";
-import MediaUploader  from "./MediaUploader";
-import TransformedImage from "./TransformedImage";
+import  MediaUploader  from "./MediaUploader";
+import { TransformedImage } from "./TransformedImage";
 
 // ZOD VALIDATION
 export const formSchema = z.object({
@@ -56,13 +57,13 @@ type AspectRatioKey = keyof typeof aspectRatioOptions;
 
 // COMPONENT
 export const TransformationForm = ({
-    action,
-    data = null,
-    userId,
-    type,
-    creditBalance,
-    config = null,
-  }: TransformationFormProps) => {
+  action,
+  data = null,
+  userId,
+  type,
+  creditBalance,
+  config = null,
+}: TransformationFormProps) => {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const transformationType = transformationTypes[type]; // Defines the transformation configuration type that will be applied to transform the image
@@ -94,9 +95,7 @@ export const TransformationForm = ({
 
   // SUBMIT HANDLER
   const onSubmitHandler = async (values: z.infer<typeof formSchema>) => {
-    console.log(values, "FORM VALUES");
     setSubmitting(true);
-
 
     if (data || image) {
       const transformationURL = getCldImageUrl({
@@ -119,7 +118,6 @@ export const TransformationForm = ({
         prompt: values.prompt,
         color: values.color,
       };
-      console.log(imageData, "IMAGE DATA");
 
       // Add Image
       if (action === "Add") {
@@ -345,8 +343,7 @@ export const TransformationForm = ({
             isTransforming={isTransforming}
             setIsTransforming={setIsTransforming}
             transformationConfig={transformationConfig}
-            hasDownload
-          /> 
+          />
         </div>
 
         {/* ACTIONS */}
@@ -374,4 +371,3 @@ export const TransformationForm = ({
     </Form>
   );
 };
-
