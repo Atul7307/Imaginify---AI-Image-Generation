@@ -10,10 +10,14 @@ import { Button } from "@/components/ui/button";
 import { getImageById } from "@/lib/actions/image.actions";
 import { getImageSize } from "@/lib/utils";
 
-const ImageDetails = async ({ params }: SearchParamProps) => {
+interface ImageDetailsProps {
+  params: Promise<{ id: string }>;
+}
+
+const ImageDetails = async ({ params }: ImageDetailsProps) => {
   const { sessionClaims } = await auth();
   const userId = sessionClaims?.userId as string;
-  const {id} = await params as { id: string };
+  const { id } = await params;
 
   const image = await getImageById(id);
 
