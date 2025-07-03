@@ -1,11 +1,10 @@
-
 import { auth } from "@clerk/nextjs/server";
 import Image from "next/image";
 import Link from "next/link";
 
 import { DeleteConfirmation } from "@/components/shared/DeleteConfirmation";
-import Header  from "@/components/shared/Header";
-import  {TransformedImage}  from "@/components/shared/TransformedImage";
+import  Header  from "@/components/shared/Header";
+import { TransformedImage } from "@/components/shared/TransformedImage";
 import { Button } from "@/components/ui/button";
 import { getImageById } from "@/lib/actions/image.actions";
 import { getImageSize } from "@/lib/utils";
@@ -17,6 +16,7 @@ interface ImageDetailsProps {
 const ImageDetails = async ({ params }: ImageDetailsProps) => {
   const { sessionClaims } = await auth();
   const userId = sessionClaims?.userId as string;
+
   const { id } = await params;
 
   const image = await getImageById(id);
@@ -87,7 +87,6 @@ const ImageDetails = async ({ params }: ImageDetailsProps) => {
             isTransforming={false}
             transformationConfig={image.config}
             hasDownload={true}
-            setIsTransforming={() => {}}
           />
         </div>
 
