@@ -8,18 +8,29 @@ import { TransformedImage } from "@/components/shared/TransformedImage";
 import { Button } from "@/components/ui/button";
 import { getImageById } from "@/lib/actions/image.actions";
 import { getImageSize } from "@/lib/utils";
+import { toast } from "sonner";
+import { redirect } from "next/navigation";
 
 interface ImageDetailsProps {
   params: Promise<{ id: string }>;
 }
 
 const ImageDetails = async ({ params }: ImageDetailsProps) => {
-  const { sessionClaims } = await auth();
-  const userId = sessionClaims?.userId as string;
+  const { userId } = await auth();
 
   const { id } = await params;
 
   const image = await getImageById(id);
+  if (!image) {
+    toast("image not found", {
+        description: "The image you are looking for does not exist.",
+        duration: 5000,
+        className: "error-toast",
+      });
+
+      redirect('/404');
+  }
+
 
   return (
     <>
@@ -90,7 +101,7 @@ const ImageDetails = async ({ params }: ImageDetailsProps) => {
           />
         </div>
 
-        {userId === image.author._id && (
+        {userId === image.author.clerkId && (
           <div className="mt-4 space-y-4">
             <Button asChild type="button" className="submit-button capitalize">
               <Link href={`/transformations/${image._id}/update`}>

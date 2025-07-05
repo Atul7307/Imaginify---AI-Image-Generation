@@ -78,7 +78,7 @@ export default function RootLayout({
           <link rel="icon" href="/favicon.ico" />
           <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
           <link rel="canonical" href="https://imaginify-ai-image-generation.vercel.app" />
-          <link rel="preload" as="image" href="/og-image.jpg" />
+          <link rel="lazy" href="/og-image.jpg" as="image" />  
         </head>
         <body className={`${geistSans.variable} ${geistMono.variable} ${IBMPlex.variable} antialiased`}>
           {children}

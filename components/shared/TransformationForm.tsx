@@ -71,8 +71,7 @@ export const TransformationForm = ({
   const [image, setImage] = useState<any>(data); // Holds the uploaded image data
   const [isSubmitting, setSubmitting] = useState(false); // Loading state on image save
 
-  const [newTransformation, setNewTransformation] =
-    useState<Transformations | null>(null); // Temporarily holds the transformation changes which will be applied after clickng the apply button
+  const [newTransformation, setNewTransformation] = useState<Transformations | null>(null); // Temporarily holds the transformation changes which will be applied after clickng the apply button
   const [transformationConfig, setTransformationConfig] = useState(config); // Holds the final transformation config that will be applied to the image
   const [isTransforming, setIsTransforming] = useState(false); // Loading state on image transformation
 

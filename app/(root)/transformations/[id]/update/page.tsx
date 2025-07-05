@@ -22,6 +22,10 @@ const UpdateImage = async ({ params }: updateImageProps) => {
   const user = await getUserById(userId);
   const image = await getImageById(id);
 
+  if(userId !== image.author.clerkId) {
+    redirect("/unauthorized");
+  }
+
   const transformation =
     transformationTypes[image.transformationType as TransformationTypeKey];
 
