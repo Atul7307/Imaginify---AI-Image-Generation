@@ -2,9 +2,15 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { IBM_Plex_Sans } from "next/font/google";
-import { ClerkProvider } from "@clerk/nextjs";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Toaster } from "@/components/ui/sonner";
+import dynamic from "next/dynamic";
+import { RouteLoading } from "@/components/RouteLoading";
+import { NavigationProgress } from "@/components/NavigationProgress";
+import { Suspense } from "react";
+
+// Lazy load Clerk components
+const ClerkProvider = dynamic(() => import('@clerk/nextjs').then(mod => mod.ClerkProvider))
 
 // Fonts
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
@@ -75,13 +81,20 @@ export default function RootLayout({
     >
       <html lang="en">
         <head>
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+          <link rel="dns-prefetch" href="https://api.openai.com" />
+          <link rel="dns-prefetch" href="https://res.cloudinary.com" />
           <link rel="icon" href="/favicon.ico" />
           <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
           <link rel="canonical" href="https://imaginify-ai-image-generation.vercel.app" />
-          <link rel="lazy" href="/og-image.jpg" as="image" />  
+          <link rel="lazy" href="/og-image.jpg" as="image" />
         </head>
         <body className={`${geistSans.variable} ${geistMono.variable} ${IBMPlex.variable} antialiased`}>
-          {children}
+          <NavigationProgress />
+          <Suspense fallback={<RouteLoading />}>
+            {children}
+          </Suspense>
           <SpeedInsights />
           <Toaster />
         </body>

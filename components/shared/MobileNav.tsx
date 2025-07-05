@@ -11,19 +11,20 @@ import {
 import { navLinks } from "@/constants"
 import { usePathname } from "next/navigation"
 import { Button } from "../ui/button"
+import { OptimizedLink } from "../OptimizedLink"
 
 const MobileNav = () => {
     const pathname = usePathname();
   return (
     <header className="header">
-        <Link href="/" className="flex items-center gap-2 md:py-2">
+        <OptimizedLink href="/" className="flex items-center gap-2 md:py-2">
             <Image
             src="/assets/images/logo-text.svg"
             alt="Logo"
             width={180}
             height={28}
             />
-        </Link>
+        </OptimizedLink>
         <nav className="flex gap-2">
             <SignedIn>
                 <UserButton afterSwitchSessionUrl="/"/>
@@ -56,7 +57,7 @@ const MobileNav = () => {
                                                 <li key={link.route} 
                                                 className={`${isActive && 'gradient-text'} p-18 flex whitespace-nowrap text-dark-700`}
                                                 >
-                                                    <Link href={link.route} className='sidebar-link cursor-pointer'>
+                                                    <OptimizedLink href={link.route} className='sidebar-link cursor-pointer'>
                                                     <Image
                                                         src={link.icon}
                                                         alt={link.label}
@@ -64,7 +65,7 @@ const MobileNav = () => {
                                                         height={24}
                                                     />
                                                     {link.label}
-                                                    </Link>
+                                                    </OptimizedLink>
                                                 </li>
                                             )
                                         })
@@ -76,7 +77,7 @@ const MobileNav = () => {
             </SignedIn>
             <SignedOut>
                 <Button asChild className='button bg-purple-gradient bg-cover'>
-                    <Link href='/sign-in'>Login</Link>
+                    <OptimizedLink href='/sign-in'>Login</OptimizedLink>
                 </Button>
             </SignedOut>
         </nav>

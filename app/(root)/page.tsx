@@ -1,10 +1,11 @@
-import { headers } from 'next/headers';
+
 import Image from "next/image";
 import Link from "next/link";
 
 import { Collection } from "@/components/shared/Collection";
 import { navLinks } from "@/constants";
 import { getAllImages } from "@/lib/actions/image.actions";
+import { OptimizedLink } from "@/components/OptimizedLink";
 
 interface PageProps {
   params: Promise<{}>;
@@ -31,7 +32,7 @@ const Home = async ({params, searchParams }: PageProps ) => {
         </h1>
         <ul className="flex-center w-full gap-20">
           {navLinks.slice(1, 5).map((link) => (
-            <Link
+            <OptimizedLink
               key={link.route}
               href={link.route}
               className="flex-center flex-col gap-2"
@@ -40,7 +41,7 @@ const Home = async ({params, searchParams }: PageProps ) => {
                 <Image src={link.icon} alt="image" width={24} height={24} />
               </li>
               <p className="p-14-medium text-center text-white">{link.label}</p>
-            </Link>
+            </OptimizedLink>
           ))}
         </ul>
       </section>
