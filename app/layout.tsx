@@ -87,6 +87,7 @@ export default function RootLayout({
           <link rel="dns-prefetch" href="https://res.cloudinary.com" />
           <link rel="icon" href="/favicon.ico" />
           <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+          <link rel="canonical" href="https://imaginify.atulkesharwaniportfolio.software/" />
           <link rel="canonical" href="https://imaginify-ai-image-generation.vercel.app" />
           <link rel="lazy" href="/og-image.jpg" as="image" />
         </head>
