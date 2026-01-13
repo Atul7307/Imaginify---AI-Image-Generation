@@ -33,6 +33,25 @@ export async function getUserById(userId: string) {
   }
 }
 
+// READ - Safe version that doesn't throw
+export async function getUserByIdSafe(userId: string) {
+  try {
+    await connectToDatabase();
+
+    const user = await User.findOne({ clerkId: userId });
+
+    if (!user) {
+      console.log(`User with clerkId ${userId} not found in database`);
+      return null;
+    }
+    
+    return JSON.parse(JSON.stringify(user));
+  } catch (error) {
+    console.error("Database error in getUserByIdSafe:", error);
+    return null;
+  }
+}
+
 // UPDATE
 export async function updateUser(clerkId: string, user: UpdateUserParams) {
   try {

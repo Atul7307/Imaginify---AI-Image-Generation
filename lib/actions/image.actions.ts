@@ -98,7 +98,13 @@ export async function getAllImages({
       savedImages,
     };
   } catch (error) {
-    handleError(error, 'Error getting all images');
+    console.log("Cloudinary/Database error, returning empty result");
+    // Return empty result instead of throwing error
+    return {
+      data: [],
+      totalPages: 0,
+      savedImages: 0,
+    };
   }
 }
 

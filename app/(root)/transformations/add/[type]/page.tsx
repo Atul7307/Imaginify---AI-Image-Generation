@@ -4,7 +4,7 @@ import React from 'react'
 import { transformationTypes } from '@/constants'
 import {TransformationForm} from '@/components/shared/TransformationForm'
 import {auth} from '@clerk/nextjs/server'
-import { getUserById } from '@/lib/actions/user.actions'
+import { getUserByIdSafe } from '@/lib/actions/user.actions'
 import { redirect } from 'next/navigation'
 import { Suspense } from 'react'
 import Loading from '@/components/shared/Loading'
@@ -22,10 +22,14 @@ const AddTransformationTypePage = async ({
     redirect('/404'); // Or return custom 404 JSX
   }
 
-
   if(!userId) redirect('/sign-in');
 
-  const user = await getUserById(userId);
+  const user = await getUserByIdSafe(userId);
+
+  if (!user) {
+    // User not found in database, redirect to sign-in where they can be created
+    redirect('/sign-in');
+  }
 
   return (
 
