@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://imaginify-ai-image-generation.vercel.app</loc><lastmod>2025-07-02T09:49:50.300Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://imaginify-ai-image-generation.vercel.app/features</loc><lastmod>2025-07-02T09:49:50.301Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://imaginify-ai-image-generation.vercel.app/pricing</loc><lastmod>2025-07-02T09:49:50.301Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://imaginify-ai-image-generation.vercel.app/about</loc><lastmod>2025-07-02T09:49:50.301Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://imaginify-ai-image-generation.vercel.app/unauthorized</loc><lastmod>2026-01-13T19:25:57.468Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://imaginify-ai-image-generation.vercel.app/schemacreator</loc><lastmod>2026-01-13T19:25:57.468Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://imaginify-ai-image-generation.vercel.app</loc><lastmod>2026-01-13T19:25:57.469Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://imaginify-ai-image-generation.vercel.app/features</loc><lastmod>2026-01-13T19:25:57.469Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://imaginify-ai-image-generation.vercel.app/pricing</loc><lastmod>2026-01-13T19:25:57.469Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://imaginify-ai-image-generation.vercel.app/about</loc><lastmod>2026-01-13T19:25:57.469Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>

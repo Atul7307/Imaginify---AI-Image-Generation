@@ -18,9 +18,9 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ['lucide-react'],
   },
 
-  
-
+  outputFileTracingRoot: __dirname,
 
 };
+
 
 export default nextConfig;

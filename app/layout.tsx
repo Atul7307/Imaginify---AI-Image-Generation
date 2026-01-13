@@ -8,6 +8,7 @@ import dynamic from "next/dynamic";
 import { RouteLoading } from "@/components/RouteLoading";
 import { NavigationProgress } from "@/components/NavigationProgress";
 import { Suspense } from "react";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
 
 // Lazy load Clerk components
 const ClerkProvider = dynamic(() => import('@clerk/nextjs').then(mod => mod.ClerkProvider))
@@ -92,12 +93,14 @@ export default function RootLayout({
           <link rel="lazy" href="/og-image.jpg" as="image" />
         </head>
         <body className={`${geistSans.variable} ${geistMono.variable} ${IBMPlex.variable} antialiased`}>
-          <NavigationProgress />
-          <Suspense fallback={<RouteLoading />}>
-            {children}
-          </Suspense>
-          <SpeedInsights />
-          <Toaster />
+          <ErrorBoundary>
+            <NavigationProgress />
+            <Suspense fallback={<RouteLoading />}>
+              {children}
+            </Suspense>
+            <SpeedInsights />
+            <Toaster />
+          </ErrorBoundary>
         </body>
       </html>
     </ClerkProvider>
